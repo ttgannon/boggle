@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+{% block title %}Boggle{% endblock %}
+{% block content %}
+
+
+
+<div class="container">
+    {% for item in session['board'] %}
+    <div class="row g-1">
+        {% for letter in item %}
+        <div class="col">
+            <div class='g-1'>{{ letter }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+    
+<form class="form">
+    <input type="text" placeholder="Guess" id="guess">
+    <button class="btn btn-primary" id="submitGuess">Submit Guess</button>
+</form>
+
+<div class="score">
+    <p id="scoreDiv">Score: <span id="score">0</span></p>
+</div>
+
+<div class="timer">
+    <p id="counter">{{ timer }}</p>
+</div>
+
+<script src="/static/app.js"></script>
+
+{% endblock %}
